@@ -54,5 +54,49 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvSource(value = {"'setVolumeRadio 5', 5, 5",
+            "'setVolumeRadio 10', 10, 10",
+            "'setVolumeRadio 11', 11, 0",
+            "'setVolumeRadio 0', 0, 0",
+            "'setVolumeRadio -1', -1, 0"})
+    void setVolume(String testName, int currentRadioStation, int expected) {
+        Radio volume = new Radio();
 
+        volume.setCurrentVolume(currentRadioStation);
+
+        int actual = volume.getCurrentVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"'volumeUp to 6', 5, 6",
+            "'volumeUp to 11', 10, 10",
+            "'volumeUp to 1', 0, 1"})
+    void volumeUp(String testName, int currentRadioStation, int expected) {
+        Radio volume = new Radio();
+
+        volume.setCurrentVolume(currentRadioStation);
+        volume.VolumeUp();
+
+        int actual = volume.getCurrentVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"'volumeDown to 5', 6, 5",
+            "'volumeDown to 0', 1, 0",
+            "'volumeDown to -1', 0, 0"})
+    void volumeDown(String testName, int currentRadioStation, int expected) {
+        Radio volume = new Radio();
+
+        volume.setCurrentVolume(currentRadioStation);
+        volume.VolumeDown();
+
+        int actual = volume.getCurrentVolume();
+
+        assertEquals(expected, actual);
+    }
 }

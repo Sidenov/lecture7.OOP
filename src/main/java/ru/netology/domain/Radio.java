@@ -31,5 +31,31 @@ public class Radio {
         this.currentRadioStation = CurrentRadioStation;
     }
 
+    private int currentVolume;
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void VolumeUp() {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        }
+    }
+
+    public void VolumeDown() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
+        }
+    }
+
+    public void setCurrentVolume(int CurrentVolume) {
+        if (CurrentVolume > 10) {
+            return;
+        }
+        if (CurrentVolume < 0) {
+            return;
+        }
+        this.currentVolume = CurrentVolume;
+    }
 }
