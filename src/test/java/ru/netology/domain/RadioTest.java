@@ -78,7 +78,7 @@ class RadioTest {
         Radio volume = new Radio();
 
         volume.setCurrentVolume(currentRadioStation);
-        volume.VolumeUp();
+        volume.volumeUp();
 
         int actual = volume.getCurrentVolume();
 
@@ -93,7 +93,7 @@ class RadioTest {
         Radio volume = new Radio();
 
         volume.setCurrentVolume(currentRadioStation);
-        volume.VolumeDown();
+        volume.volumeDown();
 
         int actual = volume.getCurrentVolume();
 
